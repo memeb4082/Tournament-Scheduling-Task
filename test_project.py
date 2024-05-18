@@ -1,5 +1,6 @@
 import os
 import ast
+import sys
 import unittest
 from inspect import getsource
 import project as P
@@ -471,4 +472,24 @@ class TestScores(unittest.TestCase):
 
 
 if __name__ == '__main__':
-   unittest.main(argv=['-b'])
+   if len(sys.argv) > 1:
+      match (sys.argv[1]):
+         case 'imported':
+            suite = unittest.TestLoader().loadTestsFromTestCase(TestImportedModules)
+         case 'gamesok':
+            suite = unittest.TestLoader().loadTestsFromTestCase(TestGamesOK)
+         case 'referees':
+            suite = unittest.TestLoader().loadTestsFromTestCase(TestReferees)
+         case 'gamegroups':
+            suite = unittest.TestLoader().loadTestsFromTestCase(TestgameGroups)
+         case 'gameschedule':
+            suite = unittest.TestLoader().loadTestsFromTestCase(TestGamesSchedule)
+         case 'scores':
+            suite = unittest.TestLoader().loadTestsFromTestCase(TestScores)
+         case _:
+            suite = unittest.TestSuite()
+   else:
+      unittest.main(argv=['-b'])
+   runner = unittest.TextTestRunner()
+   runner.run(suite)
+   # unittest.main(argv=['-b'])

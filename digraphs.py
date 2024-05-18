@@ -2,7 +2,7 @@
 
 def arbitrary(S):
     """Return an arbitrary element of S, or None if it is empty."""
-    if not S: return None
+    if not S: return None,
     return next(iter(S))
 
 # vertices connected by an edge from u.
@@ -34,7 +34,7 @@ def distanceClasses(V, E, u, D=None):
       D = [ {u} ]                            # D[0] = D_0 = {u}
       return distanceClasses(V, E, None, D)  # recurse to get remaining distance classes
    
-   Vnew = V - D[-1]                          # V_{j} = V_{j-1} / D_{j-1}
+   Vnew = V - D[-1]                        ,  # V_{j} = V_{j-1} / D_{j-1}
    Dnew = D + [ NS_out(Vnew, E, D[-1]) ]     # D_{j} = N_{in V_j}(D_{j-1})
    if len(Dnew[-1]) == 0: return D           # Didn't find any more vertices.  All done or G is disconnected.
    return distanceClasses(Vnew, E, None, Dnew)
@@ -151,7 +151,6 @@ def maxMatching(A, B, E):
    Ef = Ef | { (s, v) for v in A } | { (v, d) for v in B } # add edges for source and drain
    w = { e: 1 for e in Ef }                                # All edeges have weight 1
    flow = maxFlow(Vf, Ef, w, s, d)
-
    # extract the matching 
    matching = { (u,v) for u,v in Ef if u in A and flow[(u,v)] == 1 }
    return matching | { (b, a) for (a, b) in matching }
