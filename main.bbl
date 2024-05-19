@@ -19,6 +19,30 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{ignjatovic_algorithms}{book}{}
+      \name{author}{1}{}{%
+        {{hash=3e2d41d3487fd2de555feabbde060923}{%
+           family={Ignjatović},
+           familyi={I\bibinitperiod},
+           given={Aleks},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{institution}{2}{%
+        {School of Computer Science}%
+        {Engineering, University of New South Wales}%
+      }
+      \strng{namehash}{3e2d41d3487fd2de555feabbde060923}
+      \strng{fullhash}{3e2d41d3487fd2de555feabbde060923}
+      \strng{bibnamehash}{3e2d41d3487fd2de555feabbde060923}
+      \strng{authorbibnamehash}{3e2d41d3487fd2de555feabbde060923}
+      \strng{authornamehash}{3e2d41d3487fd2de555feabbde060923}
+      \strng{authorfullhash}{3e2d41d3487fd2de555feabbde060923}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algorithms: COMP3121/3821/9101/9801}
+    \endentry
     \entry{jenner2022mxb102}{incollection}{}
       \name{author}{1}{}{%
         {{hash=8651eee5b839b186db01e1f3bae0bc34}{%
@@ -40,7 +64,8 @@
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{chapter}{Relations, Functions, and the Big-O Notation}
+      \field{booktitle}{Relations, Functions, and the Big-O Notation}
+      \field{chapter}{27}
       \field{title}{MXB102 Advanced Mathematical Reasoning}
       \field{year}{2022}
       \field{pages}{27}
@@ -126,6 +151,99 @@
       \field{note}{Accessed: 2024}
       \field{title}{CAB203 Lecture 9}
       \field{year}{2024}
+    \endentry
+    \entry{tutorial08}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c25458e06cf302a28bfd8adbc80d0b6a}{%
+           family={McKague},
+           familyi={M\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Queensland University of Technology}%
+      }
+      \strng{namehash}{c25458e06cf302a28bfd8adbc80d0b6a}
+      \strng{fullhash}{c25458e06cf302a28bfd8adbc80d0b6a}
+      \strng{bibnamehash}{c25458e06cf302a28bfd8adbc80d0b6a}
+      \strng{authorbibnamehash}{c25458e06cf302a28bfd8adbc80d0b6a}
+      \strng{authornamehash}{c25458e06cf302a28bfd8adbc80d0b6a}
+      \strng{authorfullhash}{c25458e06cf302a28bfd8adbc80d0b6a}
+      \field{extraname}{4}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://canvas.qut.edu.au/courses/16665/files/3829888/download?download_frd=1}}
+      \field{note}{Accessed: 2024}
+      \field{title}{CAB203 Tutorial 8}
+      \field{year}{2024}
+    \endentry
+    \entry{discrete2012}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0a460577b3ea10f13367c2bc6696f6b5}{%
+           family={Pace},
+           familyi={P\bibinitperiod},
+           given={Gordon\bibnamedelima J.},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \list{location}{1}{%
+        {Berlin}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{0a460577b3ea10f13367c2bc6696f6b5}
+      \strng{fullhash}{0a460577b3ea10f13367c2bc6696f6b5}
+      \strng{bibnamehash}{0a460577b3ea10f13367c2bc6696f6b5}
+      \strng{authorbibnamehash}{0a460577b3ea10f13367c2bc6696f6b5}
+      \strng{authornamehash}{0a460577b3ea10f13367c2bc6696f6b5}
+      \strng{authorfullhash}{0a460577b3ea10f13367c2bc6696f6b5}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1st ed. 2012}
+      \field{isbn}{3-642-29840-0}
+      \field{title}{Mathematics of Discrete Structures for Computer Science}
+      \field{year}{2012}
+      \keyw{Computer science -- Mathematics}
+    \endentry
+    \entry{alma991010136556004001}{book}{}
+      \name{author}{1}{}{%
+        {{hash=5091ac11a69c28bc15d587082bce8d71}{%
+           family={Voloshin},
+           familyi={V\bibinitperiod},
+           given={Vitaly\bibnamedelima I.},
+           giveni={V\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Nova Science Publishers}%
+      }
+      \strng{namehash}{5091ac11a69c28bc15d587082bce8d71}
+      \strng{fullhash}{5091ac11a69c28bc15d587082bce8d71}
+      \strng{bibnamehash}{5091ac11a69c28bc15d587082bce8d71}
+      \strng{authorbibnamehash}{5091ac11a69c28bc15d587082bce8d71}
+      \strng{authornamehash}{5091ac11a69c28bc15d587082bce8d71}
+      \strng{authorfullhash}{5091ac11a69c28bc15d587082bce8d71}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1st ed.}
+      \field{isbn}{1-61470-113-X}
+      \field{title}{Introduction to Graph Theory}
+      \field{year}{2009}
+      \keyw{Graph theory}
     \endentry
   \enddatalist
 \endrefsection

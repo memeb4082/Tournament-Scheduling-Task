@@ -32,7 +32,7 @@
             P = \{ u: (u,v) \in S \} \cup \{ v: (u,v) \in S \}
         \end{flalign}
         This can be modeled as the graph $G = (V, E)$ where $V = P$ and $E = S$. However, given the condition that a game between $a$ and $b$ is the same as a game between $b$ and $a$, $S$ must be symmetrised. Therefore, in order to define E, we must define a 
-        symmetrising function $\mathcal{S}$ as follows
+        symmetrising function $\mathcal{S}$ \cite{tutorial08} as follows
         \begin{flalign}
             \mathcal{S}(S) = S \cup \{ (v,u): (u,v) \in S \}
         \end{flalign}
@@ -52,13 +52,13 @@
         \begin{flalign}
             \forall u,v \in V: \left( (u,v) \in E \wedge \left| N(u) \cap N(v)\right| \geq 2\right)
         \end{flalign}
-        where $N()$ is the neighbour function returning the set of neighbours of a vertex. The aboves statement states that for all possible pairs of players, there must be an edge between them, or they must have at least two common neighbours.\\
+        where $N(v)$ is the neighbour function returning the set of neighbours of a vertex. The above statement states that for all possible pairs of players, there must be an edge between them, or they must have at least two common neighbours.\\
         For the second constraint, we can define the following
         \begin{flalign}
             \left|\text{deg}(v): \forall v \in V\right| = 1 
         \end{flalign}
         where $\text{deg}(v)$ is the degree of vertex $v$. The above statement states that all players must have the same number of games.\\
-        Combing the two constraints, we can define the tournament structure as
+        Combining the two constraints, we can define the tournament structure as
         \begin{flalign}
             \forall u,v \in V: \left( (u,v) \in E \wedge \left| N(u) \cap N(v)\right| \geq 2\right) \wedge \left|\text{deg}(v): \forall v \in V\right| = 1
         \end{flalign}
@@ -76,7 +76,7 @@
         This data in it's current state is not useful for the task at hand. We must first parse this data in a more useful format.
         \begin{flalign}
             \intertext{Given that $P$ is the set of players, and}
-            R &= \left\{ r: \left[ r,c_1,\ldots, c_n \right] \in F \right\}\\
+            R &= \left\{ r: \left[ r,c_1,\ldots, c_n \right] \in F \right\}
         \end{flalign}
         By defining the the relationship between the referees and their conflicts of interest as 
         the function $c$, we can define the set of conflicts of interest as 
@@ -118,11 +118,19 @@
         \begin{flalign}
             E &= \left( \left\{ (g,r) : g \in G, g \cap c(r) = \emptyset \right\} \right)
         \end{flalign}
-        % ;TODO: continue
+        Given the objective is to assign a referee to each game and maximising the number of valid assignments.
+        This can be further defined in terms of \textbf{Maximum Matching Problem} \cite{alma991010136556004001}.
+        Given the maximum matching of the graph $G = (V,E)$ as $M$, we can test the validity of this by comparing 
+        the cardinality of $M$ to the cardinality of $G$. If the cardinality of $M$ is equal to the cardinality of $G$, then the matching is valid.\\
+        \begin{flalign}
+            \left| M \right| = \left| G \right| \implies \forall g \in G: \exists r \in R: gRr
+        \end{flalign}
+        Otherwise, the matching is invalid as there are games without referees.\\
         \begin{flalign}
             A = \left\{ (g,r) : g \in G, r \in R, g \cap c(r) = \emptyset \right\}
         \end{flalign}
-        $A$ will be a bijective function that maps $G$ (games) to $R$ (referees) such that the referee assigned to a game is not in the conflicts of interest of the referee and every game has only one referee ($\forall g \in G : \exists r \in R: gRr$) \cite{jenner2022mxb102}
+        $A$ will be a bijective function that maps $G$ (games) to $R$ (referees) such that the referee assigned to a game is not in the conflicts of interest of the referee and every game has only one referee ($\forall g \in G : \exists r \in R: gRr$) \cite{jenner2022mxb102}\\
+        This was implemented in Python by first defining the vertices \python{V} using set comprehension analogues to equation 2.1. The edges \python{E} were formed using set comprehension analogues to equation 2.7. The function $c$ defined in equation 2.4 was implemented using dictionary indexation operators on the conflicts of interest and the native Python operator \python{in} was used to confirm the presence of a referee in the conflicts of interest. The maximum matching of the graph was found using the \python{digraphs.maxMatching} function, which returned the values in a dictionary format. The validity of the matching was tested using a conditional statement that compared the cardinality of the matching to the cardinality of the games.
     \chapter{Game groups}
         Now that games have been assigned referees, we can now group games that can be played together 
         in the same time slot. However, we must first define the constraints of the problem.\\
@@ -131,7 +139,7 @@
             either as a player or as a referee.
             \item Games are played once. Each game is in exactly one game group
         \end{enumerate}
-        This problem can easily be translated to a \textbf{Minimum Colouring Problem}, where the vertices are the games and referees, and the edges are the conflicts of interest, and the objective
+        This problem can easily be translated to a \textbf{Minimum Colouring Problem} \cite{discrete2012}, where the vertices are the games and referees, and the edges are the conflicts of interest, and the objective
         is to find the minimum number of colours required to colour the vertices such that no two adjacent vertices share the same colour, and to group the vertices by colour.\\
         For $((p_1, p_2), r) \in A$, where A is the set assignedReferees. This is also the set of vertices in the graph.\\
         \begin{flalign}
@@ -164,7 +172,7 @@
         \end{itemize}
         Furthermore, the committe requires the smallest number of game groups possible.\\
         Thie problem can easily be translated into a topological sorting problem, Where
-        the graph $H = (V, E)$ is a \textbf{Directed Acyclic Graph (DAG)} \cite{lecture08}, where $V$ is the set of game groups and $E$ is the set of directed edges from a game group that must be played before another game group.\\
+        the graph $H = (V, E)$ is a \textbf{Directed Acyclic Graph (DAG)} \cite{discrete2012} \cite{lecture08}, where $V$ is the set of game groups and $E$ is the set of directed edges from a game group that must be played before another game group.\\
         \begin{flalign}
             V = G
         \end{flalign}
@@ -199,8 +207,19 @@
         The set of directed edges $E$ has been provided and is in the format $(w,l) \in E$ where $w$ is the winner and $l$ is the loser.\\ 
         Using this, we can define the vertices as the union of winners and losers
         \begin{flalign}
-            V = \left\{ w: (w,l) \in E \right\} \cap \left\{ l: (w,l) \in E \right\} 
+            V = \left\{ w: (w,l) \in E \right\} \cup \left\{ l: (w,l) \in E \right\} 
         \end{flalign}
-        The 
+        We must also consider the drain and source vertices for each player, this can be accounted for by the super-sink and super-source vertices which are vertices that are mapped to themselves $s$ and $t$ respectively \cite{ignjatovic_algorithms}
+        \begin{flalign}
+            E  = { (w,l) \in E } \cup \{ (s,s) \forall s \in V \} \cup \{ (t,t) \forall t \in V \}
+        \end{flalign}
+        Note that the capacities of the super source and super sink vertices are infinite.\\
+        The capacity of the edges are defined by the variable $c$ which is given.\\
+        As different players have different relationships with each other, 
+        each graph will have different capacities for each edge.\\
+        The flow of an edge is given by either the variable $p$ or $s$ depending on the type of win. Where $p$ is the primary win and $s$ is the secondary win.\\
+        Primary wins are defined as the immediate out neighbours of a player, and secondary wins are defined as the out neighbours of the primary wins.\\ 
+        \begin{flalign}
+        \end{flalign}
     \printbibliography
 \end{document}
