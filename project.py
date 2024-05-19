@@ -15,9 +15,18 @@ def referees(games, refereecsvfilename):
         reader = csv.reader(csvfile)
         next(reader)
         conflicts = {row[0]: set(row[1:]) for row in reader}
-    assignedReferees = {game: referee for game, referee in digraphs.maxMatching(games, conflicts.keys(), {(
-        game, referee) for referee in conflicts for game in games if not conflicts[referee].intersection(game) and referee not in game}) if game in games and referee in conflicts.keys()}
-    return assignedReferees if (len(assignedReferees) != len(games)) else None
+
+    referees = {(game, referee)
+                for referee in conflicts
+                for game in games
+                if not conflicts[referee].intersection(game) and referee not in game
+                }
+    matching = digraphs.maxMatching(games, conflicts.keys(), referees)
+    assignedReferees = {game: referee for game,
+                        referee in matching if game in games and referee in conflicts.keys()}
+    if len(assignedReferees) != len(games):
+        assignedReferees = None
+    return assignedReferees
 
 
 def gameGroups(assignedReferees):
